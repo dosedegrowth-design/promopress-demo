@@ -109,7 +109,7 @@
   }
 
   form.addEventListener('submit', function (e) { e.preventDefault(); enviar(input.value); });
-  input.addEventListener('keydown', function (e) { if (e.key === 'Enter' && !e.shiftKey) { e.preventDefault(); enviar(input.value); } });
+  input.addEventListener('keydown', function (e) { if ((e.key === 'Enter' || e.keyCode === 13) && !e.shiftKey) { e.preventDefault(); enviar(input.value); } });
   input.addEventListener('input', function () { input.style.height = 'auto'; input.style.height = Math.min(input.scrollHeight, 110) + 'px'; });
   function abrir() { root.classList.add('open'); btn.querySelector('.pp-dot').style.display = 'none'; setTimeout(function () { input.focus(); msgs.scrollTop = msgs.scrollHeight; }, 220); }
   function fechar() { root.classList.remove('open'); }
