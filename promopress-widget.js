@@ -1,4 +1,4 @@
-/* Promopress — widget de atendimento (vendedora IA) · v0.1
+/* Promopress — widget de atendimento (vendedora IA) · v0.2
  * Uso: <script src=".../promopress-widget.js" data-endpoint="https://.../webhook/..." data-titulo="Promopress" data-cor="#14213d"></script>
  * Um arquivo só (CSS embutido). Sessão em localStorage. Canal: "web".
  */
@@ -24,7 +24,7 @@
   var css = '\
   .pp-w *{box-sizing:border-box;margin:0;padding:0}\
   .pp-w{--pp-ink:' + CFG.cor + ';--pp-ac:' + CFG.acento + ';--pp-paper:#faf7f1;--pp-line:#e6e0d4;position:fixed;right:20px;bottom:20px;z-index:2147483000;font-family:"Instrument Sans",ui-sans-serif,system-ui,-apple-system,sans-serif;font-size:15px;color:#1a1a1a}\
-  .pp-btn{display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border:0;border-radius:999px;background:var(--pp-ink);color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(20,33,61,.28);font:600 15px/1 inherit;transition:transform .18s ease,box-shadow .18s ease}\
+  .pp-btn{display:flex;align-items:center;gap:10px;height:56px;padding:0 20px 0 16px;border:0;border-radius:999px;background:var(--pp-ink);color:#fff;cursor:pointer;box-shadow:0 10px 30px rgba(20,33,61,.28);font-family:inherit;font-weight:600;font-size:15px;line-height:1;transition:transform .18s ease,box-shadow .18s ease}\
   .pp-btn:hover{transform:translateY(-2px);box-shadow:0 14px 34px rgba(20,33,61,.34)}\
   .pp-btn svg{width:22px;height:22px}\
   .pp-btn .pp-dot{position:absolute;top:-3px;right:-3px;width:14px;height:14px;border-radius:50%;background:var(--pp-ac);border:2px solid #fff}\
@@ -32,7 +32,7 @@
   .pp-w.open .pp-panel{opacity:1;transform:none;pointer-events:auto}\
   .pp-head{display:flex;align-items:center;gap:12px;padding:14px 16px;background:var(--pp-ink);color:#fff}\
   .pp-ava{width:38px;height:38px;border-radius:50%;background:var(--pp-ac);display:grid;place-items:center;font:700 15px/1 "Fraunces",Georgia,serif;letter-spacing:.02em}\
-  .pp-head b{display:block;font:600 15px/1.2 inherit}\
+  .pp-head b{display:block;font-family:inherit;font-weight:600;font-size:15px;line-height:1.2}\
   .pp-head small{display:block;opacity:.75;font-size:12px;margin-top:2px}\
   .pp-head .pp-on{display:inline-block;width:7px;height:7px;border-radius:50%;background:#37d67a;margin-right:5px;vertical-align:middle}\
   .pp-x{margin-left:auto;background:transparent;border:0;color:#fff;opacity:.8;cursor:pointer;width:32px;height:32px;border-radius:8px;font-size:20px;line-height:1}\
@@ -47,10 +47,10 @@
   .pp-typing i{width:7px;height:7px;border-radius:50%;background:#b9b2a4;animation:ppb 1.1s infinite}\
   .pp-typing i:nth-child(2){animation-delay:.15s}.pp-typing i:nth-child(3){animation-delay:.3s}\
   .pp-chips{display:flex;flex-wrap:wrap;gap:6px;padding:0 14px 8px}\
-  .pp-chip{border:1px solid var(--pp-ink);background:#fff;color:var(--pp-ink);border-radius:999px;padding:6px 11px;font:500 13px/1 inherit;cursor:pointer;transition:background .15s,color .15s}\
+  .pp-chip{border:1px solid var(--pp-ink);background:#fff;color:var(--pp-ink);border-radius:999px;padding:6px 11px;font-family:inherit;font-weight:500;font-size:13px;line-height:1;cursor:pointer;transition:background .15s,color .15s}\
   .pp-chip:hover{background:var(--pp-ink);color:#fff}\
   .pp-form{display:flex;gap:8px;padding:10px 12px 12px;border-top:1px solid var(--pp-line);background:#fff}\
-  .pp-in{flex:1;resize:none;border:1px solid var(--pp-line);border-radius:12px;padding:10px 12px;font:15px/1.35 inherit;max-height:110px;outline:none;background:var(--pp-paper)}\
+  .pp-in{flex:1;resize:none;border:1px solid var(--pp-line);border-radius:12px;padding:10px 12px;font-family:inherit;font-size:15px;line-height:1.35;max-height:110px;outline:none;background:var(--pp-paper)}\
   .pp-in:focus{border-color:var(--pp-ink)}\
   .pp-send{width:44px;height:44px;border:0;border-radius:12px;background:var(--pp-ac);color:#fff;cursor:pointer;display:grid;place-items:center;align-self:flex-end;transition:transform .15s}\
   .pp-send:disabled{opacity:.5;cursor:default}.pp-send:not(:disabled):hover{transform:scale(1.05)}\
